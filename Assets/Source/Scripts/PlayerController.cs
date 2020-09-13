@@ -9,13 +9,16 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 4f;
 
     //deklarasi isPressed yang bertipe boolean agar bisa mengetahui player lompat atau tidak
-    bool isPressed = true;
+    bool isPressed = false;
 
     //deklarasi rigidbody player
     private Rigidbody rb;
 
     //deklarasi collider player
     private Collider coll;
+
+
+    public AudioSource coin;
 
     void Start()
     {
@@ -44,20 +47,23 @@ public class PlayerController : MonoBehaviour
         bool isGorunded = CheekGrounded();
 
         //melakukan cek kondisi apakah nilai dari jAxis >0 
-        if (jAxis > 0)
+        if (jAxis > 0f)
         {
-            if(isPressed && isGorunded) 
+            Debug.Log("IsPressed = true ");
+
+            if (!isPressed && isGorunded) 
             {
-                isPressed = false;
+                isPressed = true;
                 //menentukan vector untuk lompat
                 Vector3 jump = new Vector3(0f, jumpSpeed, 0f);
                 //membuat player bisa lompat 
                 rb.velocity = rb.velocity + jump;
+
             }
         }
         else
         {
-            isPressed = true;
+            isPressed = false;
         }
 
     }
@@ -116,10 +122,30 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(newPosition);
     }
 
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.tag == "Coin")
+        {
+            Debug.Log("Yey Coin");
 
+            coin.Play();
 
+            GameManager.instace.IncreceScoring(1);
 
-
-
+            Destroy(collider.gameObject);
+        }
+        else if (collider.gameObject.tag == "Enemy")
+        {
+            //Game Over
+            print("gameOver");
+            Debug.Log("gameOver");
+        }
+        else if(collider.gameObject.tag == "Goal")
+        {
+            //Game Over
+            print("Next Level");
+            Debug.Log("Next Level");
+        }
+    }
 
 }

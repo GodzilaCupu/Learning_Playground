@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!82 &30491398 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5806614372826701906, guid: 513c254691ede904cbab7e383449d7af,
+    type: 3}
+  m_PrefabInstance: {fileID: 3739393777035121098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &33661941 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6335688550314217057, guid: 513c254691ede904cbab7e383449d7af,
@@ -986,6 +992,53 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1447611195}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &613371022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 613371023}
+  - component: {fileID: 613371024}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &613371023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613371022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.26199996, z: 2.38}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &613371024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613371022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5565a7a8b96dbd443a99af13b59e8dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  highScore: 5
+  currentLevel: 1
+  highestLevel: 2
 --- !u!1001 &618217994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1813,7 +1866,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
-  jumpSpeed: 4
+  jumpSpeed: 10
+  coin: {fileID: 30491398}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -4769,6 +4823,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7950719725556633756, guid: 9ac5e2232a4d2c14795804ccef4a696d,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 19a52185c981f374f812d25146fec8e7,
+        type: 2}
     - target: {fileID: 7950719725556633759, guid: 9ac5e2232a4d2c14795804ccef4a696d,
         type: 3}
       propertyPath: m_LocalPosition.x
