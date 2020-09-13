@@ -53,4 +53,19 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Level" + currentLevel);
     }
 
+
+    public void IncreseLevel()
+    {
+        if (currentLevel < highestLevel)
+        {
+            currentLevel++;
+        }
+        else
+        {
+            currentLevel = 1;
+        }
+
+        SceneManager.LoadScene("Level" + currentLevel);
+    }
+
 }

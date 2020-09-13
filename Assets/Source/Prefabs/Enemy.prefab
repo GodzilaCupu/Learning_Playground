@@ -107,5 +107,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeY: 0.01
-  speed: 3
-  direction: 1.38
+  speed: 5
+  direction: 4

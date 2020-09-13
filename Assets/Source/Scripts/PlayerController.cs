@@ -142,6 +142,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(collider.gameObject.tag == "Goal")
         {
+            GameManager.instace.IncreseLevel();
             //Game Over
             print("Next Level");
             Debug.Log("Next Level");
