@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public UIController Ui;
+
+
+
     //deklarasi variable kecepatan untuk jalan dan lompat
     public float walkSpeed = 5f;
     public float jumpSpeed = 4f;
@@ -27,6 +32,8 @@ public class PlayerController : MonoBehaviour
 
         //mengambil komponen Collider
         coll = GetComponent<Collider>();
+
+        Ui.Refresh();
 
     }
 
@@ -129,6 +136,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Yey Coin");
 
             coin.Play();
+            Ui.Refresh();
 
             GameManager.instace.IncreceScoring(1);
 
@@ -139,10 +147,15 @@ public class PlayerController : MonoBehaviour
             //Game Over
             print("gameOver");
             Debug.Log("gameOver");
+            SceneManager.LoadScene("GameOver");
+            
         }
+
+
         else if(collider.gameObject.tag == "Goal")
         {
             GameManager.instace.IncreseLevel();
+            GameManager.instace.Reset();
             //Game Over
             print("Next Level");
             Debug.Log("Next Level");

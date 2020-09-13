@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -16,8 +17,13 @@ public class UIController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Refresh()
+   public  void Refresh()
     {
         scoreTXT.text = "Score: " + GameManager.instace.score;
+    }
+
+    public void Mulai()
+    {
+        SceneManager.LoadScene("Level1");
     }
 }
