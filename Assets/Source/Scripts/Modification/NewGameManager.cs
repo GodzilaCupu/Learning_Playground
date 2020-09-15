@@ -6,8 +6,10 @@ using UnityEngine;
 
 public class NewGameManager : MonoBehaviour
 {
-    int score = 1;
-    int highScore = 10;
+    public int score = 1;
+    public int highScore = 10;
+
+
     int currentLevel = 1;
     int highestLevel = 2;
 
@@ -25,12 +27,7 @@ public class NewGameManager : MonoBehaviour
         Debug.Log("gameOver");
     }
 
-    public void GameOverUi()
-    {
-        txtScore.text = score.ToString();
-        txtHighScore.text = highScore.ToString();
-    }
-
+ 
     public void IncreceScoring(int value)
     {
         //menyimpan nilai score
