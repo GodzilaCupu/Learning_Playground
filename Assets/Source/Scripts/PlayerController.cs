@@ -142,6 +142,7 @@ public class PlayerController : MonoBehaviour
 
             Destroy(collider.gameObject);
         }
+
         else if (collider.gameObject.tag == "Enemy")
         {
             //Game Over
@@ -154,7 +155,7 @@ public class PlayerController : MonoBehaviour
 
         else if(collider.gameObject.tag == "Goal")
         {
-            GameManager.instace.IncreseLevel();
+            GameManager.instace.IncreseLevel(1);
             GameManager.instace.Reset();
             //Game Over
             print("Next Level");

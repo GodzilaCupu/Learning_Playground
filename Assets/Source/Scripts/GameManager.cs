@@ -48,24 +48,20 @@ public class GameManager : MonoBehaviour
     public void Reset()
     {
         score = 0;
-        currentLevel = 1;
-
-        SceneManager.LoadScene("Level" + currentLevel);
     }
 
 
-    public void IncreseLevel()
+    public void IncreseLevel(int lvl)
     {
-        if (currentLevel < highestLevel)
+        currentLevel += lvl;
+        if (currentLevel <= highestLevel)
         {
-            currentLevel++;
-        }
-        else
+            SceneManager.LoadScene("Level"+currentLevel);
+        }else if ( currentLevel > highestLevel)
         {
-            currentLevel = 1;
+            SceneManager.LoadScene("GameOver");
+            Destroy(gameObject);
         }
 
-        SceneManager.LoadScene("Level" + currentLevel);
     }
-
 }
