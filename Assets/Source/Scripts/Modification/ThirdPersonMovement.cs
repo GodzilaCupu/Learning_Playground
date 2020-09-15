@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
+    [SerializeField]
+    private NewGameManager GameManager;
+    //[SerializeField]
+    //private NewCoinController Coin;
+
+
     public CharacterController controller;
     public Transform cam;
 
@@ -23,8 +30,16 @@ public class ThirdPersonMovement : MonoBehaviour
 
     Vector3 velocity,arah;
 
+    public AudioSource pickedSound;
+
     // Update is called once per frame
     void Update()
+    {
+        MovementHandeler();
+       
+    }
+
+    private void MovementHandeler()
     {
         float hAxis = Input.GetAxisRaw("Horizontal");
         float vAxis = Input.GetAxisRaw("Vertical");
@@ -57,6 +72,35 @@ public class ThirdPersonMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-       
     }
+
+    private void OnTriggerEnter(Collider trigger)
+    {
+        // Triggered by touch Coin
+        if (trigger.gameObject.tag == "Coin")
+        {
+            Debug.Log("Yey Coin");
+            GameManager.IncreceScoring(1);
+            GameManager.RefreshScoreUI();
+            pickedSound.Play();
+
+            Destroy(trigger.gameObject);
+
+        }
+        else
+        // Triggered by touch the Enemy
+        if (trigger.gameObject.tag == "Enemy")
+        {
+            //Game Over
+            GameManager.GameOver();
+        } else
+        // Triggered By touching the Goal
+        if(trigger.gameObject.tag == "Goal")
+        {
+            GameManager.IncreseLevel();
+            GameManager.Reset();
+        }
+
+    }
+
 }

@@ -52,6 +52,10 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene("Level" + currentLevel);
     }
+    public void GameOver()
+    {
+        SceneManager.LoadScene(3);
+    }
 
 
     public void IncreseLevel()

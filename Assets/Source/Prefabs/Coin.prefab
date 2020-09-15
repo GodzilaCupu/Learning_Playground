@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4441060878626149509}
   - component: {fileID: 5773621429156086906}
   - component: {fileID: 2591500806960014791}
-  - component: {fileID: 2703300026815632465}
   - component: {fileID: 5806614372826701906}
+  - component: {fileID: 2776212945382482380}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -96,19 +96,6 @@ CapsuleCollider:
   m_Height: 1.04
   m_Direction: 2
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &2703300026815632465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409850138951838572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c1744212925784d888d9680d17ce36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 100
 --- !u!82 &5806614372826701906
 AudioSource:
   m_ObjectHideFlags: 0
@@ -205,3 +192,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2776212945382482380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409850138951838572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4e884849800f94b8062b988a7ceb11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 50
+  pickedSound: {fileID: 5806614372826701906}
