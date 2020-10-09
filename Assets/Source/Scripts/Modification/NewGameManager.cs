@@ -46,17 +46,20 @@ public class NewGameManager : MonoBehaviour
 
     public void IncreseLevel()
     {
-        if (currentLevel < highestLevel)
+        if (currentLevel <= highestLevel)
         {
             currentLevel++;
-            Debug.Log("Level Sekarang " + currentLevel);
+        }
+        else if (currentLevel > highestLevel)
+        {
+            SceneManager.LoadScene("GameOver");
         }
         else
         {
             currentLevel = 1;
         }
-
         SceneManager.LoadScene("Level" + currentLevel);
+
         Debug.Log("Level Sekarang " + currentLevel);
     }
 
